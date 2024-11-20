@@ -1,0 +1,84 @@
+/* General background with soft color */
+.stApp {
+    margin: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;  /* Light grey */
+    background-attachment: fixed;
+}
+
+/* Dashboard Title */
+.dashboard_title {
+    font-size: 2.5rem;
+    color: #333333;  /* Dark grey */
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* Dashboard Subtitle */
+.dashboard_subtitle {
+    font-size: 1.3rem;
+    color: #666666;  /* Medium grey */
+    font-weight: 400;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Centered main content */
+.centered_content {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Header image with adjusted size */
+.header_image {
+    width: 120px;
+    margin-top: 15px;
+}
+
+/* Section headings */
+.page_heading {
+    font-size: 2rem;
+    color: #333333;  /* Dark grey */
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Subsection headings */
+.section_subheading {
+    font-size: 1.5rem;
+    color: #444444;  /* Slightly dark grey */
+    font-weight: 500;
+    text-align: left;
+    margin-top: 30px;
+}
+
+/* General page text */
+.page_content {
+    font-size: 1.1rem;
+    color: #333333;  /* Dark grey */
+    text-align: center;
+    margin: 15px;
+}
+
+/* Sidebar styling */
+.streamlit-option-menu {
+    background-color: #e0e0e0;  /* Light grey */
+}
+
+.streamlit-option-menu .icon {
+    color: #333333;
+}
+
+.streamlit-option-menu .nav-link {
+    font-size: 1rem;
+    color: #444444;  /* Slightly dark grey */
+    --hover-color: #cccccc;  /* Light grey on hover */
+}
+
+.streamlit-option-menu .nav-link-selected {
+    background-color: #d9d9d9;  /* Light grey */
+    color: #222222;  /* Very dark grey */
+}
