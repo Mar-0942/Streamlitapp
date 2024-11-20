@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 import seaborn as sns
 from streamlit_option_menu import option_menu
 import plotly.express as px
@@ -75,23 +74,38 @@ if not df.empty:
         st.markdown('<p class="section_subheading">Summary Statistics</p>', unsafe_allow_html=True)
         st.write(df.describe())
 
+        
         st.markdown('<p class="section_subheading">Price Distribution</p>', unsafe_allow_html=True)
         if 'price' in df.columns:
-            fig, ax = plt.subplots()
-            sns.histplot(df['price'], kde=True, ax=ax, color="#68b4ff")
-            st.pyplot(fig)
-        else:
-            st.warning("La columna 'price' no está disponible en el dataset.")
+            fig = px.histogram(
+                df, 
+                x='price', 
+                nbins=50, 
+                title='Price Distribution', 
+                marginal='box', # Puedes quitar esto si no quieres una caja resumen
+                color_discrete_sequence=["#68b4ff"],
+                opacity=0.7
+            )
+            fig.update_layout(bargap=0.1) # Ajusta el espacio entre barras
+            st.plotly_chart(fig, use_container_width=True)
 
         st.markdown('<p class="section_subheading">Top Categories by Sales</p>', unsafe_allow_html=True)
         if 'category' in df.columns and 'sales_count' in df.columns:
-            fig, ax = plt.subplots()
             top_categories = df.groupby('category')['sales_count'].sum().nlargest(10).reset_index()
-            sns.barplot(data=top_categories, x='sales_count', y='category', ax=ax, palette="cool")
-            st.pyplot(fig)
-        else:
-            st.warning("Las columnas necesarias ('category' y 'sales_count') no están disponibles en el dataset.")
+            fig = px.bar(
+                top_categories, 
+                x='sales_count', 
+                y='category', 
+                orientation='h', 
+                title='Top Categories by Sales',
+                color='sales_count', 
+                color_continuous_scale='Blues'
+            )
+            fig.update_layout(yaxis=dict(categoryorder="total ascending"))  # Ordena de menor a mayor
+            st.plotly_chart(fig, use_container_width=True)
 
+        
+        
     # Insights
     elif selected == "Insights":
         st.markdown('<p class="page_heading">Insights</p>', unsafe_allow_html=True)
