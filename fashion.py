@@ -48,14 +48,7 @@ with st.sidebar:
 
 # Cargar el dataset
 file_path = 'fashion_data_2018_2022.csv'
-try:
-    df = pd.read_csv(file_path)
-except FileNotFoundError:
-    st.error(f"El archivo '{file_path}' no fue encontrado. Asegúrate de que el archivo esté en la ruta correcta.")
-    df = pd.DataFrame()  # Dataset vacío para evitar errores
-except Exception as e:
-    st.error(f"Error al cargar el archivo: {e}")
-    df = pd.DataFrame()
+df = pd.read_csv(file_path)
 
 # Verifica si el dataset tiene datos
 if not df.empty:
