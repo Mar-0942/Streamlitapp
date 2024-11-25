@@ -8,7 +8,7 @@ import os
 st.set_page_config(
     page_title="Fashion Trends Dashboard",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
 
 # Cargar CSS
