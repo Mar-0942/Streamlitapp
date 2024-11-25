@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 from streamlit_option_menu import option_menu
 import plotly.express as px
-
+import os
 # Configuración inicial
 st.set_page_config(
     page_title="Fashion Trends Dashboard",
